@@ -25,6 +25,9 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
     && chmod +x /usr/bin/start-nginx.sh \
     && chmod +x /usr/bin/supervisor-shutdown
 
+RUN localedef -v -c -i en_US -f UTF-8 en_US.UTF-8 || true
+ENV LC_ALL "en_US.UTF-8"
+
 EXPOSE 8080
 
 CMD ["supervisord", "-n", "-c", "/etc/supervisor.ini"]
