@@ -7,12 +7,12 @@ ENV STATIC_PATH "/srv/static"
 ENV MEDIA_PATH "/srv/media"
 
 USER root
-RUN yum -y update \    
-    && yum -y install nginx gettext \
-    && easy_install-2.7 pip && pip2 install supervisor supervisor-stdout \
+RUN yum -y update \
+    && yum -y install nginx gettext python2-pip \
+    && pip2 install supervisor supervisor-stdout \
     && mkdir /etc/nginx/proxy.d
 
-# Create a directory for config 
+# Create a directory for config
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/start-nginx.sh /usr/bin/start-nginx.sh
 COPY nginx/mime.types /etc/nginx/mime.types
