@@ -1,4 +1,4 @@
-FROM logicify/python-wsgi:3.6
+FROM logicify/python-wsgi:3.5.6
 MAINTAINER "Dmitry Berezovsky <dmitry.berezovsky@logicify.com>"
 
 ENV PROXY_TIMEOUT "90"
